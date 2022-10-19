@@ -1,0 +1,133 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  /*background-color: #2155CD;*/
+  text-align: center;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 3.0rem;
+  line-height: 1.2;
+  padding-bottom: 30px;
+}
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  padding-bottom: 30px;
+}
+h5{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+#HomeContent p {
+  padding-bottom: 30px;
+  font-size: 1rem;
+  color: #8f8f8f;
+}
+hr{
+  border-style: solid none none;
+
+  border-width: 5px;
+
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+
+                                             /*navbar*/
+
+
+.navbar {
+  padding: 0 2%;
+}
+.navpanel {
+  padding: 0;
+  position: fixed;
+  top: 0;
+}
+
+.navbar-brand {
+  padding: 0;
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+.navbar-item {
+  padding: 0px 18px;
+}
+
+.nav-link {
+  font-family: "Montserrat-light";
+  font-size: 1.2rem;
+}
+
+.login {
+  font-family: "Montserrat-ligth";
+}
+
+
+                                       /*HomeContent */
+
+#HomeContent {
+  padding-top: 90px;
+  padding-bottom: 0;
+}
+
+.title-head {
+  color: #0d6efd;
+  padding: 40px 70px;
+
+
+}
+
+
+.title-img {}
+
+.dogimage {
+  width: 100%;
+  position: relative;
+  z-index: -1;
+  top: -10px;
+}
+
+                                          /*Footer*/
+#footer{
+  color: #0d6efd;
+  padding: 0;
+}
+#footer p{
+
+  padding-bottom: 0:
+}
+.ficon{
+  padding: 15px;
+}
+
+
+                                           /* Media */
+
+
+@media (max-width: 1028px) {
+  .navpanel {
+    padding: 0;
+    position: static;
+    top: 0;
+  }
+  .navList{
+    padding-bottom: 10px;
+  }
+  #HomeContent {
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  .dogimage {
+    position: static;
+
+    width: 80%;
+  }
+}
