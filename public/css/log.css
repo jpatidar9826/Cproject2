@@ -1,0 +1,109 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.hero{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: linear-gradient(to right, #09c6f9, #045de9);
+
+}
+
+.form-box{
+
+  width: 380px;
+  height: 480px;
+  position: relative;
+  margin: 6% auto;
+  background: #fff;
+  border: 5px solid;
+  border-image: linear-gradient(to right, #045de9, #09c6f9) 30;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.button-box{
+  width: 240px;
+  margin: 35px auto;
+  position: relative;
+  box-shadow: 0 0 20px 9px #ff61241f;
+  border-radius: 30px;
+}
+.toggle-btn{
+
+  padding: 10px 30px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+
+}
+#btn{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(to right, #09c6f9, #045de9);
+  border-radius: 30px;
+  transition: .5s;
+}
+
+.social-icons{
+  margin: 30px;
+
+  text-align: center;
+}
+.social-icons a{
+  border: 0;
+  margin: 8px;
+  padding: 10px 10px 7px 10px;
+  border-radius: 50%;
+  outline: none;
+  background: linear-gradient(to right, #09c6f9, #045de9);
+  color: white;
+}
+
+.input-group{
+  top: 180px;
+  position: absolute;
+  width: 280px;
+  transition: .5s;
+}
+
+.input-field{
+  width: 100%;
+  padding: 20px 0;
+  margin: 5px 0;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+}
+.submit-btn{
+  width: 85%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  background: linear-gradient(to right, #09c6f9, #045de9);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+}
+#LOGIN{
+  left: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#REGISTER{
+  left: 450px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/*linear-gradient(to right, #ff105f, #ffad06)*/

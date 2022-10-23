@@ -81,7 +81,7 @@ app.get("/auth/google",
 );
 
 app.get("/auth/google/secrets",
-  passport.authenticate('google', { failureRedirect: "/login" }),
+  passport.authenticate('google', { failureRedirect: "/login2" }),
   function(req, res) {
     // Successful authentication, redirect to secrets.
     res.redirect("/secrets");
@@ -92,7 +92,7 @@ app.get("/auth/google/secrets",
 
 
 app.get("/login", function(req, res) {
-  res.render("login");
+  res.render("login2");
 });
 
 app.get("/register", function(req, res) {
@@ -101,15 +101,23 @@ app.get("/register", function(req, res) {
 
 app.get("/secrets",function(req,res){
 
-  User.find({"secret": {$ne: null}}, function(err, foundUsers){
-    if (err){
-      console.log(err);
-    } else {
-      if (foundUsers) {
-        res.render("secrets", {usersWithSecrets: foundUsers});
+  if (req.isAuthenticated()) {
+    User.findById(req.user.id,function(err,foundUser){
+      if (err) {
+        console.log(err);
+      }else{
+        if(foundUser){
+          res.render("secrets",{
+            usersWithSecrets: foundUser
+          });
+        }
       }
-    }
-  });
+    });
+
+  }else{
+    res.redirect("/login");
+  }
+
 
 });
 
@@ -174,7 +182,7 @@ app.post("/register", function(req, res) {
   User.register({username: req.body.username},req.body.password,function(err,user){
     if (err) {
       console.log(err);
-      res.resdirect("/register");
+      res.redirect("/login");
     }else{
       passport.authenticate("local")(req,res,function(){
         res.redirect("/secrets");
