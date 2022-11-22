@@ -157,16 +157,28 @@ app.get("/secrets", function(req, res) {
 
 });
 
-app.get("/submit", function(req, res) {
-  if (req.isAuthenticated()) {
-    res.render("submit");
-  } else {
+app.get("/preview", function(req, res) {
 
+  if (req.isAuthenticated()) {
+    User.findById(req.user.id, function(err, foundUser) {
+      if (err) {
+        console.log(err);
+      } else {
+        if (foundUser) {
+          res.render("preview", {
+            UserNow: foundUser
+          });
+        }
+      }
+    });
+
+  } else {
     res.redirect("/login");
   }
 
+
 });
-app.post("/submit", function(req, res) {
+app.post("/personal", function(req, res) {
   const sdname = req.body.name;
   const sdlastname = req.body.lastname;
   const sdemail = req.body.lemail;
@@ -297,7 +309,7 @@ app.post("/skill", function(req, res) {
     if (err) {
       console.log(err);
     }else{
-      User.findByIdAndUpdate(foundUser.id, { $push: { "Skills": { SkillName: req.body.eperiod }}},
+      User.findByIdAndUpdate(foundUser.id, { $push: { "Skills": { SkillName: req.body.skillname }}},
             {safe: true,upsert: true},
 
         function(err, result) {
@@ -328,11 +340,116 @@ app.post("/skilldelete",function(req, res){
 });
 
 
-/// Work Details Updates and Deletion
+/// certificates Details Updates and Deletion
+app.post("/certificate", function(req, res) {
+    User.findById(req.user.id,function(err,foundUser){
+    if (err) {
+      console.log(err);
+    }else{
+      User.findByIdAndUpdate(foundUser.id, { $push: { "Certificates": { CertName: req.body.certname }}},
+            {safe: true,upsert: true},
 
-/// Work Details Updates and Deletion
+        function(err, result) {
+          console.log(err);
+          res.redirect("/secrets");
+        });
+    }
+  });
+});
+app.post("/certidelete",function(req, res){
+  const checkedItemId = req.body.checkbox;
+  const listName = req.body.listName;
+  User.findById(req.user.id,function(err,foundUser){
+    if (err) {
+      console.log(err);
+    }else{
+      User.findByIdAndUpdate(foundUser.id, {$pull: { "Certificates": {_id : checkedItemId}}},
+          {safe: true,upsert: true},
+          function(err, result) {
+          if (err) {
+            console.log(err);
+          }else{
+            res.redirect("/secrets");
+          }
+        });
+    }
+  });
+});
 
-/// Work Details Updates and Deletion
+/// Hobbies Updates and Deletion
+app.post("/hobbie", function(req, res) {
+    User.findById(req.user.id,function(err,foundUser){
+    if (err) {
+      console.log(err);
+    }else{
+      User.findByIdAndUpdate(foundUser.id, { $push: { "Hobbies": { HobbName: req.body.hobbiename }}},
+            {safe: true,upsert: true},
+
+        function(err, result) {
+          console.log(err);
+          res.redirect("/secrets");
+        });
+    }
+  });
+});
+app.post("/hobbiedelete",function(req, res){
+  const checkedItemId = req.body.checkbox;
+  const listName = req.body.listName;
+  User.findById(req.user.id,function(err,foundUser){
+    if (err) {
+      console.log(err);
+    }else{
+      User.findByIdAndUpdate(foundUser.id, {$pull: { "Hobbies": {_id : checkedItemId}}},
+          {safe: true,upsert: true},
+          function(err, result) {
+          if (err) {
+            console.log(err);
+          }else{
+            res.redirect("/secrets");
+          }
+        });
+    }
+  });
+});
+
+
+
+/// Languages Details Updates and Deletion
+app.post("/language", function(req, res) {
+    User.findById(req.user.id,function(err,foundUser){
+    if (err) {
+      console.log(err);
+    }else{
+      User.findByIdAndUpdate(foundUser.id, { $push: { "Languages": { LangName: req.body.langname }}},
+            {safe: true,upsert: true},
+
+        function(err, result) {
+          console.log(err);
+          res.redirect("/secrets");
+        });
+    }
+  });
+});
+app.post("/langdelete",function(req, res){
+  const checkedItemId = req.body.checkbox;
+  const listName = req.body.listName;
+  User.findById(req.user.id,function(err,foundUser){
+    if (err) {
+      console.log(err);
+    }else{
+      User.findByIdAndUpdate(foundUser.id, {$pull: { "Languages": {_id : checkedItemId}}},
+          {safe: true,upsert: true},
+          function(err, result) {
+          if (err) {
+            console.log(err);
+          }else{
+            res.redirect("/secrets");
+          }
+        });
+    }
+  });
+});
+
 
 app.get("/logout", function(req, res) {
   req.logout(function(err) {

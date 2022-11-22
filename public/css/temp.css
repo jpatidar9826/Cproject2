@@ -1,11 +1,39 @@
+.Allfather{
+  padding-left: 0px;
+}
+.navbar {
+  padding: 0 2%;
+}
+.navpanel {
+  padding: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+}
 
- .branding{
-   background-color: black;
- }
+.navbar-brand {
+  padding: 0;
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+.navbar-item {
+  padding: 0px 18px;
+}
+
+.nav-link {
+  font-family: "Montserrat-light";
+  font-size: 1.2rem;
+}
+
+.login {
+  font-family: "Montserrat-ligth";
+}
 
  .Details{
 
-   padding: 20px 20px;
+   padding: 115px 20px 20px 40px;
 
  }
 
@@ -71,7 +99,7 @@
    padding: 10px 5px;
  }
 
- 
+
  .inputField{
    padding: 5px 15px;
    box-shadow: none;
@@ -116,10 +144,146 @@
     -webkit-text-fill-color: transparent;
 
   }
+  .workbox{
+    padding: 5px;
+    border: 2px solid;
+
+    border-image: linear-gradient(to right, #045de9, #09c6f9) 30;
+  }
+  .workcont{
+    margin: 5px;
+    padding: 5px 20px;
+    border: 0;
+    border-radius: 20px;
+    color: white;
+    background: linear-gradient(to right, #045de9, #09c6f9);
+  }
+  .workparaleft{
+    text-align: left;
+    padding: 0;
+  }
+  .workpararight{
+    text-align: right;
+    padding: 0;
+  }
+  .workpararight p{
+    font-family: sans-serif;
+    margin-bottom: 0px;
+    padding: 3px 10px;
+  }
+  .workparaleft p{
+    font-family: sans-serif;
+    margin-bottom: 0px;
+    padding: 3px 10px;
+  }
+  .workpos{
+    font-size: 1rem;
+    font-weight: 600;
+
+  }
+  .workimp{
+    font-size: .8rem;
+    font-weight: 300;
+  }
+  .worksum{
+    font-size: .7rem;
+    font-weight: 200;
+  }
+  .buttoncont{
+
+    padding: 10px 20px;
+  }
+  .buttoncont button{
+    width: 120px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    background: linear-gradient(to right, #045de9, #09c6f9);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+  }
+
+  .skillbox{
+    text-align: center;
+    background: linear-gradient(to right, #045de9, #09c6f9);
+    color: white;
+    border-radius: 30px;
+    padding: 5px;
+
+    border: 0;
+    outline: none;
+
+  }
+  .skillbox p{
+    margin-bottom: 0px;
+    padding: 2px 5px 2px 20px;
+
+  }
+  .skillbox input{
+    padding: 0;
+    border-top: 8px solid;
+    border-bottom: 8px solid;
+    border-left: 3px solid;
+    border-right: 3px solid;
+    background-color: transparent;
+    border-color: white;
+  }
+  .skillbox input:hover{
+
+    border-top: 8px solid;
+    border-bottom: 8px solid;
+    background-color: red;
+    border-color: white;
+    padding: 0;
+  }
+  .workparaleft input{
+
+    padding: 0;
+    border-top: 8px solid;
+    border-bottom: 8px solid;
+    border-left: 3px solid;
+    border-right: 3px solid;
+    background-color: transparent;
+    border-color: white;
+  }
+  .workparaleft input:hover{
+    border-top: 8px solid;
+    border-bottom: 8px solid;
+    background-color: red;
+    border-color: white;
+    padding: 0;
+  }
+  .workbox .row{
+    margin: 0 2px;
+    padding: 5px;
+  }
 
 
  .preview{
-   background-color: blue;
+   height: 100%;
+   background-color: grey;
    position: fixed;
+   z-index: -1;
    right: 0;
+ }
+ .previewbutton{
+   text-align: right;
+   position: fixed;
+   padding: 20px;
+   right: 0;
+   bottom: 0;
+ }
+ .previewbutton button{
+
+   padding: 10px 40px;
+   color: white;
+   font-weight: 600;
+   font-size: 1.2rem;
+   cursor: pointer;
+   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+   background: linear-gradient(to right, #045de9, #09c6f9);
+   border: 0;
+   outline: none;
+   border-radius: 30px;
  }

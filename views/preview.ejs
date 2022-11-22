@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Raysume</title>
+  <link rel="icon" href="images/raysume.png">
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@100;400;700;800;900&family=Roboto:wght@100;400;700;900&family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- CSSstylesheet -->
+
+  <!-- fontsAwesom -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+
+  <script src="https://kit.fontawesome.com/dcdd8c60bc.js" crossorigin="anonymous"></script>
+  <!-- bootstrap -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="css/preview.css">
+
+
+</head>
+
+<body>
+  <section id="Navigation">
+    <div class="container-fluid navpanel">
+      <!-- Nav Bar -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand">Raysume</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+           <ul class="navList navbar-nav ms-auto">
+            <li class="navbar-item">
+              <a class="nav-link active" href="/">
+                Home
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="">
+                Templates
+              </a>
+            </li>
+            <li class="navbar-item">
+              <a class="nav-link" href="/#footer">
+                Contact Us
+              </a>
+            </li>
+            <li class="navbar-item">
+               <form action="/logout" method="get" class="inline">
+                 <button class="login btn btn-outline-light"type="submit" name="button">Logout</button>
+               </form>
+
+
+            </li>
+
+          </ul>
+
+        </div>
+      </nav>
+    </div>
+
+  </section>
+  <div class="spacer">
+
+  </div>
+
+
+  <div class="html-content container-fluid container" >
+    <div class="row">
+<!-- Sidepart Information -->
+      <div class="col-4 sidepart">
+        <div class="col-12 imageholder">
+
+          <div class="card">
+            <img src="images/UserProfile.png" id="previewImg" class="card-img-top" alt="Img_preview">
+          </div>
+
+        </div>
+        <div class="expbox">
+          <h6>Contact</h6>
+          <hr>
+
+          <div class="workcont">
+            <p class="emques"><i class="fa-brands fa-at"></i> Email</p>
+            <p class="emans"><%=UserNow.UserEmail%></p>
+          </div>
+
+        </div>
+        <div class="expbox">
+          <h6>Links</h6>
+          <hr>
+          <div class="workcont">
+            <div class="">
+              <a href="<%=UserNow.UserGithub%>"><i class="fa-brands fa-github"></i> Github</a>
+            </div>
+            <div class="">
+              <a href="<%=UserNow.UserLinkedin%>"><i class="fa-brands fa-linkedin"></i> linkedin</a>
+            </div>
+            <div class="">
+              <a href="<%=UserNow.UserPersonalSite%>"><i class="fa-brands fa-wordpress-simple"></i> Personal</a>
+            </div>
+          </div>
+        </div>
+        <div class="expbox">
+          <h6>Skills</h6>
+          <hr>
+          <div class="skillbox">
+
+            <% UserNow.Skills.forEach(function(item){ %>
+
+                <div class="row">
+                  <div class="">
+                    <p class="skillname"><%= item.SkillName %></p>
+                  </div>
+                </div>
+              <% }); %>
+
+          </div>
+
+        </div>
+        <div class="expbox">
+          <h6>Hobbies</h6>
+          <hr>
+          <div class="skillbox">
+
+            <% UserNow.Hobbies.forEach(function(item){ %>
+
+                <div class="row">
+                  <div class="">
+                    <p class=""><%= item.HobbName %></p>
+                  </div>
+                </div>
+              <% }); %>
+
+          </div>
+
+        </div>
+        <div class="expbox">
+          <h6>Language</h6>
+          <hr>
+          <div class="skillbox">
+
+            <% UserNow.Languages.forEach(function(item){ %>
+
+                <div class="row">
+                  <div class="">
+                    <p class=""><%= item.LangName %></p>
+                  </div>
+                </div>
+              <% }); %>
+
+          </div>
+
+        </div>
+
+      </div>
+<!-- Main Information -->
+      <div class="col-8 mainpart">
+        <div class="">
+          <h1><%=UserNow.FirstName %> <%=UserNow.LastName %></h1>
+        </div>
+        <div class="jobbox">
+          <h6><%=UserNow.JobTitle %></h6>
+
+        </div>
+        <div class="summarybox">
+          <p><%=UserNow.ResumeSummary %></p>
+
+        </div>
+
+        <div class="expbox">
+          <h6>Experience</h6>
+          <hr>
+          <div class="iexpbox">
+
+            <% UserNow.WorkHistory.forEach(function(item){ %>
+
+                <div class="row workcont">
+                  <div class="col-12">
+                    <p class="workper"><%= item.WorkPeriod %></p>
+                  </div>
+                  <div class="col-12">
+
+                    <p class="workimp"><%= item.WorkEmployer %></p>
+                    <p class="workpos"><%= item.WorkPosition %></p>
+                  </div>
+
+                  <div class="col-12">
+                    <p class="worksum"><%= item.WorkSummary %></p>
+                  </div>
+                </div>
+              <% }); %>
+
+          </div>
+
+        </div>
+        <div class="expbox">
+          <h6>Education</h6>
+          <hr>
+          <div class="iexpbox">
+
+            <% UserNow.EducationalQualification.forEach(function(item){ %>
+
+                <div class="row workcont">
+                  <div class="col-12">
+                    <p class="workper"><%= item.EQPeriod %></p>
+                  </div>
+                  <div class="col-12">
+                    <p class="edudegree"><%= item.EQDegree %></p>
+                    <p class="workimp"><%= item.EQInstitute %></p>
+                  </div>
+
+                </div>
+              <% }); %>
+
+          </div>
+
+        </div>
+        <div class="expbox">
+          <h6>Certificates & Achievements</h6>
+          <hr>
+          <div class="iexpbox">
+
+            <% UserNow.Certificates.forEach(function(item){ %>
+
+                <div class="row">
+                  <div class="col-12">
+                    <p class="edudegree"><%= item.CertName %></p>
+                  </div>
+                </div>
+              <% }); %>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="tools row">
+    <div class="card-body">
+
+      <input type="file" id="inpFile" onchange="loadFile(event)" class="form-control" name="inpFile">
+      <label for="inpFile">Select Photo</label>
+    </div>
+    <button type="button" onclick="CreatePDFfromHTML()" name="button">Download</button>
+
+  </div>
+
+
+
+
+
+
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+  var loadFile = function(event) {
+    var reader = new FileReader();
+    reader.onload = function() {
+      var output = document.getElementById('previewImg');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  };
+
+  function CreatePDFfromHTML() {
+  var HTML_Width = $(".html-content").width();
+  var HTML_Height = $(".html-content").height();
+  var top_left_margin = 15;
+  var PDF_Width = HTML_Width + (top_left_margin * 2);
+  var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+  var canvas_image_width = HTML_Width;
+  var canvas_image_height = HTML_Height;
+
+  var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+  html2canvas($(".html-content")[0]).then(function (canvas) {
+      var imgData = canvas.toDataURL("image/jpeg", 1.0);
+      var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+      pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
+      for (var i = 1; i <= totalPDFPages; i++) {
+          pdf.addPage(PDF_Width, PDF_Height);
+          pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+      }
+      pdf.save("Your_PDF_Name.pdf");
+      $(".html-content").hide();
+  });
+}
+
+  </script>
+
+
+
+</body>
+
+</html>
