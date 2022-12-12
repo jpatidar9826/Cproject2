@@ -27,7 +27,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb+srv://admin-jayant:admin-jayantP@atlascluster.lhuatks.mongodb.net/collegeDB", {
+mongoose.connect(process.env.DATABASE_KEY, {
   useNewUrlParser: true
 });
 
